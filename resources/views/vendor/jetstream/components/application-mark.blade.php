@@ -1,0 +1,1 @@
+<img src="/assets/chat.jpg" style="width:128px; mix-blend-mode: multiply;">
