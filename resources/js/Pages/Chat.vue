@@ -29,7 +29,6 @@
                     <!-- box message -->
                     <div class="w-9/12 flex flex-col justify-between">
 
-                        
                         <!-- message -->
                         <div class="w-full p-6 flex flex-col overflow-y-scroll">
                             <div
@@ -49,16 +48,8 @@
                         <div v-if="userActive" class="w-full bg-gray-200 bg-opacity-25 p-6 border-t border-gray-200">
                         <form v-on:submit.prevent="sendMessage">
                             <div class="flex rounded-md overflow-hidden border border-gray-300">
-                            <!-- <input v-model="message" type="text" class="flex-1 px-4 py-2 text-sm focus:outline-none">-->
-                            <input v-model="message" type="text" placeholder="Write Something" class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-700 pl-6 bg-gray-200 py-3">
-                           <!-- <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2">Send</button> -->
-
-                                <button type="submit" class="inline-flex items-center justify-center h-12 w-12 transition duration-500 ease-in-out text-white bg-green-500 hover:bg-green-400 focus:outline-none">
-                                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 transform rotate-90">
-                                      <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
-                                   </svg>
-                                </button>
-
+                            <input v-model="message" type="text" class="flex-1 px-4 py-2 text-sm focus:outline-none">
+                            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2">Send</button>
                             </div>
                         </form>
                         </div>
@@ -114,7 +105,6 @@
 
                 axios.get(`api/users/${userId}`).then(response => {
                     this.userActive = response.data.user
-                    console.log(this.userActive.name)
                 })
 
                 await axios.get(`api/messages/${userId}`).then(response => {
@@ -195,11 +185,11 @@
 
 <style>
 .messageFromMe {
-    @apply px-4 py-2 rounded-lg inline-block rounded-br-none bg-green-600 text-white;
+    @apply bg-green-300;
 }
 
 .messageToMe {
-    @apply px-4 py-2 rounded-lg inline-block bg-gray-300 text-gray-600;
+    @apply bg-gray-300 bg-opacity-25;
 }
 </style>
 
